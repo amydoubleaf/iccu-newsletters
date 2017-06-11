@@ -1,4 +1,4 @@
-# ICCU Newslettes
+# ICCU Newsletters
 A script which converts Markdown content into a fluid HTML web page which can be sent as an email.
 
 This project was created as a generator for [Imperial College Christian Union's](iccu.co.uk) weekly email newsletters to members.
