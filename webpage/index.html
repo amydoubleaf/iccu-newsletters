@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>ICCU Newsletter Generator</title>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+    <h1>ICCU Newsletter Generator</h1>
+    <p>I make pretty emails newsletters for <a href="http://iccu.co.uk">Imperial College Christian Union</a>.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <form action="https://z1fb7b01x9.execute-api.eu-west-1.amazonaws.com/prod/generator" method="post">
+                    <p>
+                        <label for="date">Date:</label>
+                        <input type="text" class="form-control" id="date" name="date" placeholder="e.g. 05/06/2017 or 5th June 2017">
+                    </p>
+                    <p>
+                        <label for="bible_passage">Bible passage:</label>
+                        <textarea class="form-control" rows="5" name="bible_passage" id="bible_passage" placeholder="e.g. From there Elisha went up to Bethel. As he was walking along the road, some boys came out of the town and jeered at him. 'Get out of here, baldy!' they said. 'Get out of here, baldy!'"></textarea>
+                    </p>
+                    <p>
+                        <label for="bible_passage_location">Bible passage location:</label>
+                        <input type="text" class="form-control" id="bible_passage_location" name="bible_passage_location" placeholder=" e.g. 2 Samuel 2:23 NIV">
+                    </p>
+                    <p>
+                        Make sure include the translation to comply with copyright agreements e.g. NIV
+                    </p>
+                    <p>
+                    <label for="raw_markdown">Content (markdown):</label>
+                    <textarea class="form-control" rows="25" name="raw_markdown" id="raw_markdown" required>
+**Hey everyone!**
+
+This is a model newsletter. Also, this isn't Amy, despite the signature at the bottom.
+
+# HUB
+## Thursday 18:15, Huxley 311
+### 1 Peter 3:8-22
+We continue this week with 1 Peter 3:8-22. Join us for a cracking Bible study, singing, prayer and of course pizza. Remember HUB is shorter this term so why not take a break from studying and come on down to Huxley 311
+
+---
+
+# Prayer Breakfast
+## Friday 08:00, 10 Princes Gardens (Chaplaincy)
+A great way to end the week with a morning of prayer and a delicious breakfast. There will be bacon!
+
+---
+
+**Coming up......**
+
+# Globe Café Picnic!!!
+## Wednesday 21st June 15:30-17:30, Princes Gate Gardens (behind the Chaplaincy)
+If you've come to Globe Café this year come and enjoy the summer (hopefully) sunshine and nearly the end of term with snacks, games and some well-earned chill time.  Bring your friends, hall mates, housemates, course mates (you get the idea!)
+
+---
+
+# Some dates for your diaries that you won't want to miss!
+- Weekend Away 2017!!! 10th-12th November 2017
+- Carol Service!!! 18th December
+- Events Week 2018!!! Week starting 5th February
+
+More deets nearer the time, but for now: save the dates and get excited!
+
+
+---
+
+<center>Centered text. Oooooh</center>
+
+---
+
+# Prayer points
+If you would consider yourself a Christian and would like to know how you can be praying for the CU, here  are some pointers:
+- Pray for those taking exams or doing projects, that they will have energy and find rest in the Lord
+- Pray for final year students who will soon be graduating, that God would grant them wisdom and guidance about their next steps
+- Pray for the committee as they plan events for the rest of the term and next year
+- Pray for our city in the wake of the attacks, and the country in the run up to the general election
+
+In Christ,
+                </textarea><p/>
+                    <p><input type="submit" role="button" class="btn btn-success btn-lg btn-block" value="Generate the newsletter!"></input></p>
+                </form>
+            </div>
+            <h3>But what is markdown?</h3>
+            <p>Beautiful.</p>
+            <p><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Here's a concise guide. It's very, very easy to use!</a></p>
+            <p>Want to download a helpful example newsletter markdown file?</p>
+            <p><a href="example.md" role="button" class="btn btn-primary btn-lg btn-block">Yes please <span class="glyphicon glyphicon-download"></span></a></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
