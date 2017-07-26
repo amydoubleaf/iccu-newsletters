@@ -5,7 +5,7 @@ This project is a generator for [Imperial College Christian Union's](iccu.co.uk)
 
 ## Usage
 1. Based on `example.md`, write the content of the newsletter in Markdown
-2. Open [the website for this service] (mauriceyap.co.uk/iccu) or `webpage/index.html`
+2. Open [the website for this service](mauriceyap.co.uk/iccu) or `webpage/index.html`
 3. Fill in the text fields and paste the Markdown content in the big box
 4. Click the big green button which says, "Generate the newsletter!"
 5. You have been taken to a web page of the generated email. Select all and copy-paste this into the new email message
