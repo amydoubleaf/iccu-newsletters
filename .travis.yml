@@ -8,14 +8,14 @@ dist: trusty
 
 install:
   - "cd aws_lambda_function"
-  - "pip install --target=src -r src/requirements.txt"
+  - "pip install --target=. -r requirements.txt"
   - "cd .."
 
 script:
   - "ls"
 
 after_success:
-  - "cd aws_lambda_function/src"
+  - "cd aws_lambda_function"
   - "zip -r generator.zip *"
   - "cd .."
   - "mkdir deploy-zip"
