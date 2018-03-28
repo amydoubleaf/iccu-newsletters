@@ -14,6 +14,12 @@ This project is a generator for [Imperial College Christian Union's](iccu.co.uk)
 - [x] The `aws_lambda_function` folder, as you can guess by the name, contains Python code for an AWS Lambda function that
   processes the form inputs and concerts it into a web page
 - [x] The main web page, `webpage/index.html` uses HTTP POST to send the input data to the Lambda function
-- [ ] Travis CI deploys the Lambda function code to an S3 bucket following a successful test of the master branch code
+- [x] Travis CI deploys the Lambda function code to an S3 bucket following a successful test of the master branch code
 - [x] AWS Lambda automatically syncs up with the code in this bucket
 - [ ] Travis also deploys the web page into a different S3 bucket which stores the website
+
+## Bus factor issues
+- The AWS Lambda function is hosted on Maurice Yap's personal Amazon Web Services account because it's the only practical way to do it which doesn't cost loads of money
+  - **If a bus strikes:**
+    - inside `aws_lambda_function`, run `pip3 install -t . -r requirements.txt`, then zip up `aws_lambda_function`. This is the zip file you need to upload to AWS after creating a new Lambda function.
+    - in `webpage/index.html`, there is a `form` tag. Change the `action` parameter to the target path of the Lambda function you have set up. This is the URL to which you post data to the function, and it responds.
