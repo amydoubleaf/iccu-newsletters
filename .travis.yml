@@ -1,0 +1,36 @@
+language: python
+python: "3.6"
+notifications:
+  email: false
+
+sudo: enabled
+dist: trusty
+
+install:
+  - "cd aws_lambda_function"
+  - "pip install --target=src -r src/requirements.txt"
+  - "cd .."
+
+script:
+  - "ls"
+
+after_success:
+  - "cd aws_lambda_function/src"
+  - "zip -r generator.zip *"
+  - "cd .."
+  - "mkdir deploy-zip"
+  - "mv src/generator.zip deploy-zip/"
+
+deploy:
+  provider: lambda
+  function_name: "generator"
+  region: "eu-west-1"
+  role: "arn:aws:iam::882482748234:role/lambda_basic_execution"
+  runtime: "python3.6"
+  module_name: "lambda"
+  handler_name: "lambda_handler"
+  zip: "deploy-zip/generator.zip"
+  access_key_id:
+    secure: "BJaCjyBuaI90N5kjD+k20TMWhleRo01EHjhQ24bZMEsbJ7G1Ua+RJ/pzb3cf76VZeKB44hyHvbV8GQIcvh2sgc/7LYxDnxlrxxAYpt96g0ApB5JGVEwcEmq3pIfDXs1n4MIxStgf9VB2ylT2Izkm7tE4AVbWdaeQKYvqR49ftygSXx2WYgWiGuBhr1ecH10mhqDi4NTlj3VyODYRQkhpT6ybXmhtPdyZ0BaTq8wSGwFlOJ6obGl+Noa47vlVbps/q4+ye9NKCEDbKMPbpIQv4k8POa6W99KZ+MX0qx6H497LDxj6/rYIzoswXBVJ2C5qjhf/YdIDHL8J7Qbrkm1mLksKn5WRPw4aZJ60RH1PjHRsp8DBweSgAKCn/l08DJoruZ6ieCp+96wniMq6SrqdTWaWE6dEix1zYw7n4Rg8pUhzcqU+ysQnzB+X0yukVHIm+rzuWHglGdzLhF59yjDx5+PlonYuTbJQTXxoK5F8utH8IUJO0+t+OxbdlJlBaZCF4JHmQgWwjgSX0mw6HWbbvvGmTgl3Oe9iUPBZTYLdUYjmVtTal7kXLZ2mb6TGnqzP6hQyZVaijy1/u2vjndhSgiLFsIWKE0Ayq0G9XMCS6UGwxUyhBSThwkHSL1zD0ggV+lI/W+aFP5M/ZiLaGmxpEKr7LDn3kcb4TgGWbPfufmg="
+  secret_access_key:
+    secure: "h6dXCktHbpB+LV7Un0WVlAJETaKSyfEJ5i65DAiQ7xw61rrMh0gMGV981TtMQAphS9FNGBVNRfjc1jiYvnVCKogvzXkc8oTDDmdoAPP5X/xTI6CtExknYUNDDo1OrZ1wiTXaECTXY9OjWWmlpzu4tztSVY0R+o7gOn6iqbzI7rxPb3c3ZYUK2HC3penF25/X4/TBDK9U33b+TVgOqmgVaxbo/r0bLDnFfj6onM8EQF2yaUJMG1rN1zy2bOXoP+HhOcem9QCfQn6x1HyDcALWNwjUokpOSTdtjb8qR7c8C83DUAXSDRZf7rXM3/FpdKLkMopeA/3N8gwOLWRXAjn/Qmv1OUWeDW6iMf/jqHIa6cQxejPCKIV9mfTCT76asklTPatftCvZ9gIg6BD96/Una6HT4Z8pCt8D1GUP87iBuTelI5Jxv2TaB3gGFNI5lxCuexnVPrIFoqHrE3qPRWYuBDKG8f/amyujMQtI/rEqHbZVJbTGtiQxEv51yKWQTn5igGEtsp5f5w0PhDK4djiF8Jj9z8wyBjGx4Ay6WRJzj41R4/LnOwFwHBPeBcGILT8q3p3Oj6+H6Lh+RR3JAP7HjXr4AJ5xAlj8llwZK5qxRvv87A72Bde9S1ONREFYFaCkp2JscacQzw7gAl1uLI8yqIajdnN8xm0tB4junwpRFEU="
