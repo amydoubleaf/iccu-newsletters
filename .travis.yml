@@ -15,7 +15,7 @@ after_success:
 - zip -r generator.zip *
 - cd ..
 - mkdir deploy-zip
-- mv src/generator.zip deploy-zip/
+- mv aws_lambda_function/generator.zip deploy-zip/
 deploy:
   provider: lambda
   function_name: generator
