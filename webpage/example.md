@@ -1,6 +1,6 @@
 **Hey everyone!**
 
-This is a model newsletter. Also, this isn't Amy, despite the signature at the bottom.
+This is a model newsletter. Also, this isn't Lydia, despite the signature at the bottom.
 
 # HUB
 ## Thursday 18:15, Huxley 311
