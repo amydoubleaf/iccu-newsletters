@@ -6,7 +6,7 @@ sudo: enabled
 dist: trusty
 install:
 - cd aws_lambda_function
-- pip install --target=. -r requirements.txt
+- pip3 install -t . -r requirements.txt
 - cd ..
 script:
 - ls
